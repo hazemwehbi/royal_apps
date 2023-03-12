@@ -1,3 +1,5 @@
+#PS: I already uploaded the dependencies package like Vendor + Node_modules to avoid the version conflict.
+
 # BookStore Management
 
 BookStore Management is a simple web application for manage book with the author.
