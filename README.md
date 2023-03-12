@@ -1,4 +1,4 @@
-#PS: I already uploaded the dependencies package like Vendor + Node_modules to avoid the version conflict.
+# PS: I already uploaded the dependencies package like Vendor + Node_modules to avoid the version conflict.
 
 # BookStore Management
 
