@@ -3,7 +3,15 @@ FROM php:7.3.6-fpm
 ENV TZ Asia/Jakarta
 ENV COMPOSER_ALLOW_SUPERUSER 1
 
-RUN sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 23F3D4EA75716059
+RUN type -p curl >/dev/null || (sudo apt update && sudo apt install curl -y)
+RUN curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg \
+&& sudo chmod go+r /usr/share/keyrings/githubcli-archive-keyring.gpg \
+&& echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null \
+&& sudo apt update \
+&& sudo apt install gh -y
+
+RUN sudo apt update
+RUN sudo apt install gh
 
 # install Lib for composer
 RUN apt-get update -qq && \
